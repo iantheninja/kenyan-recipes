@@ -1,0 +1,19 @@
+!!! 5
+%html
+%head
+  %title Kenyan Recipes
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+  %nav.navbar.navbar-default
+    .container
+      .navbar-brand= link_to "Kenyan Recipes", root_path
+      %ul.nav.navbar.navbar-nav.navbar-right
+        %li= link_to "Recipe", new_recipe_path
+        %li= link_to "Sign out", root_path
+  .container
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: "alert"
+    = yield

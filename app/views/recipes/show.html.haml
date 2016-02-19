@@ -3,20 +3,20 @@
     .col-md-4
       = image_tag @recipe.image.url(:medium), class: "recipe_image"
     .col-md-8
-      #recipe_infor
+      #recipe_info
         %h1= @recipe.title
         %p.description= @recipe.description
 
   .row
     .col-md-6
-      #ingredient
+      #ingredients
         %h2 Ingredients
         %ul
           - @recipe.ingredients.each do |ingredient|
             %li= ingredient.name
 
     .col-md-6
-      #direction
+      #directions
         %h2 Directions
         %ul
           - @recipe.directions.each do |direction|

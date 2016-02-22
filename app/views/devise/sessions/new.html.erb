@@ -8,7 +8,7 @@
         <%= f.input :password, required: false, input_html: { class: 'form-control' } %>
         <%= f.input :remember_me, input_html: { class: 'form-control' }, as: :boolean if devise_mapping.rememberable? %>
       </div>
-
+      <br>
       <div class="form-actions">
         <%= f.button :submit, "Log in", class: 'btn btn-primary' %>
       </div>

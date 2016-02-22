@@ -10,9 +10,16 @@
   %nav.navbar.navbar-default
     .container
       .navbar-brand= link_to "Kenyan Recipes", root_path
-      %ul.nav.navbar.navbar-nav.navbar-right
-        %li= link_to "New Recipe", new_recipe_path
-        %li= link_to "Sign out", root_path
+
+      - if user_signed_in?
+        %ul.nav.navbar.navbar-nav.navbar-right
+          %li= link_to "New Recipe", new_recipe_path
+          %li= link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        %ul.nav.navbar.navbar-nav.navbar-right
+          %li= link_to "Sign up", new_user_registration_path
+          %li= link_to "Sign in", new_user_session_path
+
   .container
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert"
